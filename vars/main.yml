@@ -1,0 +1,21 @@
+---
+# vars file for roles/vector-role
+vector_config:
+  sources:
+    our_log:
+      type: file
+      read_from: beginning
+      ignore_older_secs: 600
+      include:
+      - /home/dmitry/logs/*.log
+  sinks:
+    to_clickhouse:
+      type: clickhouse
+      inputs:
+        - our_log
+      database: custom
+      endpoint: http://51.250.107.212:8123
+      table: my_table
+      compression: gzip
+      healthcheck: false
+      skip_unknown_fields: true
