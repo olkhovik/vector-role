@@ -34,7 +34,7 @@ The simpliest example:
 - name: Install Vector
   hosts: vector
   roles:
-    - vector
+    - vector-role
 ```
 
 License
